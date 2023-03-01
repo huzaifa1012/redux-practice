@@ -17,7 +17,7 @@ const user_details = () => {
   return (
     <>
       <h1>Users Section</h1>
-      
+
       <button  onClick={() => {addNewUser(fake_user_data());}}>
         Add User </button>
         <br />
