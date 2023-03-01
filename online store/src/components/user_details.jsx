@@ -1,18 +1,32 @@
-import React from 'react'
-import { fake_user_data } from '../api'
+import React from "react";
+import { fake_user_data } from "../api";
+import {useDispatch} from "react-redux"
+import { addUser } from "../store/slices/slice";
 
 const user_details = () => {
-  
-    const addNewUser = (payload)=>{
-        console.log(payload);
+    
+    const dispatch = useDispatch()
 
-    }
-    return (
-        <>
-        <h1>Users Section</h1>
-        <button onClick={()=>{addNewUser(fake_user_data())}}>Add User</button>
-        </>
-  )
-}
+    const addNewUser = (payload) => {
+    
+      dispatch(addUser(payload));
+      // console.log(payload);
 
-export default user_details
+
+};
+  return (
+    <>
+      <h1>Users Section</h1>
+      
+      <button  onClick={() => {addNewUser(fake_user_data());}}>
+        Add User </button>
+        <br />
+      <button  onClick={() => {}}>
+        Delete User </button>
+      <br />
+      <button  onClick={() => {}}>
+        Delete All </button>
+    </>
+  );
+};
+export default user_details;
